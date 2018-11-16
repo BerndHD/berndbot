@@ -1,4 +1,5 @@
 from discord.ext import commands
+import youtube_dl
 
 client = commands.Bot(command_prefix="!!")
 player_dict = dict()
