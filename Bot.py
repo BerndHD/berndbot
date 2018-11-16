@@ -88,8 +88,9 @@ async def info(ctx):
     await client.send_message(ctx.message.channel, '!!clear ; Reinigt den ganzen Chatverlauf des Kanals [Berechtigung ben.] ')
     await client.send_message(ctx.message.channel, '!!foto ; Zeigt Landschaftsfoto...')
     await client.send_message(ctx.message.channel, '!!info ; Dieser Befehl')
-    await client.send_message(ctx.message.channel, 'durch andere sachen erweitern !!!!musik!!!')
-    await client.send_message(ctx.message.channel, 'volume resume pause')
+    await client.send_message(ctx.message.channel, '!!volume ; [-;+;Zahl]')
+    await client.send_message(ctx.message.channel, '!!pause ; Pausiert abspielen')
+    await client.send_message(ctx.message.channel, '!!resume ; Setzt abspielen fort')
     await client.send_message(ctx.message.channel, 'Programmierer:')
     await client.send_message(ctx.message.channel, ':smiley: **@BerndHD#9422** :smiley:')
 
