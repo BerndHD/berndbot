@@ -1,4 +1,6 @@
 from discord.ext import commands
+import discord
+from discord.ext import opus
 
 client = commands.Bot(command_prefix="!!")
 player_dict = dict()
