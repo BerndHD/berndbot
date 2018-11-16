@@ -1,11 +1,11 @@
 import os
 from discord.ext import commands
-import youtube_dl
-from discord import opus
-
+import asyncio
+import random
 
 client = commands.Bot(command_prefix="!!")
 player_dict = dict()
+last_play = None
 
 
 @client.event
@@ -40,6 +40,7 @@ async def stop(ctx):
     await voice_client.disconnect()
     del player_dict[server.id]
 
+
 @client.command(pass_context=True)
 async def pause(ctx):
     server = ctx.message.server
@@ -47,12 +48,14 @@ async def pause(ctx):
     player.pause()
     await client.send_message(ctx.message.channel, "Pausiere abspielen von `%s`..." % player.title)
 
+
 @client.command(pass_context=True)
 async def resume(ctx):
     server = ctx.message.server
     player = player_dict[server.id]
     player.resume()
     await client.send_message(ctx.message.channel, "Setze abspielen von `%s` fort..." % player.title)
+
 
 @client.command(pass_context=True)
 async def volume(ctx, sound_volume=None):
@@ -69,10 +72,6 @@ async def volume(ctx, sound_volume=None):
             player.volume = player.volume + 0.05
 
         await client.send_message(ctx.message.channel, "Setze Lautstärke auf: `{}%`".format(player.volume * 100))
-
-
-
-
 
 
 @client.command(pass_context=True)
@@ -101,6 +100,13 @@ async def info(ctx):
 @client.command(pass_context=True)
 async def foto(ctx):
     await client.send_message(ctx.message.channel, 'https://www.fewo-alpenwelt.de/img/wallpaper/landschaft.jpg')
+
+
+@client.command(pass_context=True)
+async def hallo(ctx):
+        await client.send_message(ctx.message.author, "Hallo `@%s`!" % ctx.message.author)
+        await client.send_message(ctx.message.author, "Du befindest dich auf dem Server `%s`!" % ctx.message.server)
+        await client.send_message(ctx.message.channel, "Nachricht an @%s gesandt!" % ctx.message.author)
 
 
 
