@@ -1,6 +1,7 @@
 from discord.ext import commands
-import discord
+import youtube_dl
 from discord import opus
+
 
 client = commands.Bot(command_prefix="!!")
 player_dict = dict()
@@ -84,14 +85,14 @@ async def clear(ctx):
 async def info(ctx):
     await client.send_message(ctx.message.channel, 'BBot Information')
     await client.send_message(ctx.message.channel, 'Befehle :grinning:')
-    await client.send_message(ctx.message.channel, '!!play [URL] ; Musik abspielen ')
-    await client.send_message(ctx.message.channel, '!!stop ; Stoppt Musik abspielen')
+    await client.send_message(ctx.message.channel, '~~!!play [URL] ; Musik abspielen~~')
+    await client.send_message(ctx.message.channel, '~~!!stop ; Stoppt Musik abspielen~~')
     await client.send_message(ctx.message.channel, '!!clear ; Reinigt den ganzen Chatverlauf des Kanals [Berechtigung ben.] ')
     await client.send_message(ctx.message.channel, '!!foto ; Zeigt Landschaftsfoto...')
     await client.send_message(ctx.message.channel, '!!info ; Dieser Befehl')
-    await client.send_message(ctx.message.channel, '!!volume ; [-;+;Zahl]')
-    await client.send_message(ctx.message.channel, '!!pause ; Pausiert abspielen')
-    await client.send_message(ctx.message.channel, '!!resume ; Setzt abspielen fort')
+    await client.send_message(ctx.message.channel, '~~!!volume ; [-;+;Zahl]~~')
+    await client.send_message(ctx.message.channel, '~~!!pause ; Pausiert abspielen~~')
+    await client.send_message(ctx.message.channel, '~~!!resume ; Setzt abspielen fort~~')
     await client.send_message(ctx.message.channel, 'Programmierer:')
     await client.send_message(ctx.message.channel, ':smiley: **@BerndHD#9422** :smiley:')
 
@@ -102,4 +103,4 @@ async def foto(ctx):
 
 
 
-client.run('NTA4NTcxMDE4OTk5MzY1NjUz.DtAHbg.-l-dDYIPM0RNWk7X1RN7NMazFCo')
+client.run(str(os.environ.get('BOT_TOKEN')))
