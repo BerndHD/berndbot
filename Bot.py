@@ -99,4 +99,4 @@ async def foto(ctx):
 
 
 
-client.run('BOT_TOKEN')
+client.run('NTA4NTcxMDE4OTk5MzY1NjUz.DtAHbg.-l-dDYIPM0RNWk7X1RN7NMazFCo')
