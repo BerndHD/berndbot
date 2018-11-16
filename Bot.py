@@ -1,5 +1,6 @@
 import os
 from discord.ext import commands
+import discord
 import asyncio
 import youtube_dl
 
