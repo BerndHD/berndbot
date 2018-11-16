@@ -1,3 +1,3 @@
 # berndbot
-A Discord Bot
+A Discord Bot.
 It's my BBot
