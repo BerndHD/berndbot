@@ -60,9 +60,14 @@ async def wait_until_login():
 
 
 @client.command(pass_context=True)
-async def play(ctx, url):
+async def join(ctx):
     channel = ctx.message.author.voice.voice_channel
     await client.join_voice_channel(channel)
+    await client.send_message(ctx.message.channel, "Sprachkanal beigetreten...")
+
+
+@client.command(pass_context=True)
+async def play(ctx, url):
     server = ctx.message.server
     voice = client.voice_client_in(server)
     player = await voice.create_ytdl_player(url)
@@ -77,10 +82,14 @@ async def stop(ctx):
     player = player_dict[server.id]
     await client.send_message(ctx.message.channel, "Beende abspielen von `%s`..." % player.title)
     player.stop()
+
+@client.command(pass_context=True)
+async def leave(ctx):
+    server = ctx.message.server
     voice_client = client.voice_client_in(server)
     await voice_client.disconnect()
+    await client.send_message(ctx.message.channel, "Verlasse Sprachkanal...")
     del player_dict[server.id]
-
 
 @client.command(pass_context=True)
 async def pause(ctx):
@@ -126,6 +135,8 @@ async def clear(ctx):
 async def info(ctx):
     await client.send_message(ctx.message.channel, 'BBot Information')
     await client.send_message(ctx.message.channel, 'Befehle :grinning:')
+	await client.send_message(ctx.message.channel, '!!join ; Sprachkanal beitreten [ben. f. !!play]')
+	await client.send_message(ctx.message.channel, '!!leave ; Sprachkanal verlassen')
     await client.send_message(ctx.message.channel, '!!play [URL] ; Musik abspielen')
     await client.send_message(ctx.message.channel, '!!stop ; Stoppt Musik abspielen')
     await client.send_message(ctx.message.channel, '!!clear ; Reinigt den ganzen Chatverlauf des Kanals [Berechtigung ben.] ')
@@ -140,6 +151,7 @@ async def info(ctx):
     await client.send_message(ctx.message.channel, '        Schleife für YouTube')
 
 
+
 @client.command(pass_context=True)
 async def foto(ctx):
     await client.send_message(ctx.message.channel, 'https://www.fewo-alpenwelt.de/img/wallpaper/landschaft.jpg')
@@ -149,7 +161,7 @@ async def foto(ctx):
 async def hallo(ctx):
         await client.send_message(ctx.message.author, "Hallo `%s`!" % ctx.message.author.name)
         await client.send_message(ctx.message.author, "Du befindest dich auf dem Server `%s`!" % ctx.message.server)
-        await client.send_message(ctx.message.channel, "Nachricht an `%s` gesandt!" % ctx.message.author.name)
+        await client.send_message(ctx.message.channel, "Nachricht an %s gesandt!" % ctx.message.author.name)
 
 
 
