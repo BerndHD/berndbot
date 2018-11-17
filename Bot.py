@@ -5,6 +5,7 @@ import asyncio
 import youtube_dl
 
 client = commands.Bot(command_prefix="!!")
+player_dict = dict()
 
 
 
