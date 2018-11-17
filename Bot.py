@@ -53,6 +53,10 @@ async def on_ready():
     print(client.user.name)
     print('ID:')
     print(client.user.id)
+    
+@client.event
+async def wait_until_login():
+    await client.change_presence(game=discord.Game(name='!!info'))
 
 
 @client.command(pass_context=True)
