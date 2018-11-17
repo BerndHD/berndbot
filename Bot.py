@@ -135,7 +135,7 @@ async def clear(ctx):
 async def info(ctx):
     await client.send_message(ctx.message.channel, 'BBot Information')
     await client.send_message(ctx.message.channel, 'Befehle :grinning:')
-	await client.send_message(ctx.message.channel, '!!join ; Sprachkanal beitreten [ben. f. !!play] ')
+	await client.send_message(ctx.message.channel, '!!join ; Sprachkanal beitreten -vor !!play-')
 	await client.send_message(ctx.message.channel, '!!leave ; Sprachkanal verlassen')
     await client.send_message(ctx.message.channel, '!!play [URL] ; Musik abspielen')
     await client.send_message(ctx.message.channel, '!!stop ; Stoppt Musik abspielen')
