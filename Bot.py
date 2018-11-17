@@ -132,6 +132,8 @@ async def info(ctx):
     await client.send_message(ctx.message.channel, '!!resume ; Setzt abspielen fort')
     await client.send_message(ctx.message.channel, 'Programmierer:')
     await client.send_message(ctx.message.channel, ':smiley: **@BerndHD#9422** :smiley:')
+    await client.send_message(ctx.message.channel, ':smile: Derzeitiges Projekt :smile:')
+    await client.send_message(ctx.message.channel, '        Schleife für YouTube')
 
 
 @client.command(pass_context=True)
@@ -141,9 +143,9 @@ async def foto(ctx):
 
 @client.command(pass_context=True)
 async def hallo(ctx):
-        await client.send_message(ctx.message.author, "Hallo `@%s`!" % ctx.message.author)
+        await client.send_message(ctx.message.author, "Hallo `%s`!" % ctx.message.author.name)
         await client.send_message(ctx.message.author, "Du befindest dich auf dem Server `%s`!" % ctx.message.server)
-        await client.send_message(ctx.message.channel, "Nachricht an @%s gesandt!" % ctx.message.author)
+        await client.send_message(ctx.message.channel, "Nachricht an `%s` gesandt!" % ctx.message.author.name)
 
 
 
