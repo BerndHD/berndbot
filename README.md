@@ -5,4 +5,6 @@ It's my BBot.
 
 Changelog:
 
-YouTube [music function] does not work now. Fix needed.
+24/7 support!!!
+
+Fixed YouTube function!!!
