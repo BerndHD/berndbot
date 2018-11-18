@@ -125,21 +125,31 @@ async def volume(ctx, sound_volume=None):
 
 
 @client.command(pass_context=True)
-async def clear(ctx):
-    await client.send_message(ctx.message.channel, 'Löscht Nachrichten in diesem Channel.')
+async def clearall(ctx):
+    await client.send_message(ctx.message.channel, 'Löscht alle Nachrichten in diesem Channel.')
     async for msg in client.logs_from(ctx.message.channel):
         await client.delete_message(msg)
 
 
 @client.command(pass_context=True)
+async def clear(ctx, amount=5):
+    channel = ctx.message.channel
+    messages = []
+    await client.send_message(ctx.message.channel, 'Löscht 5 Nachrichten in diesem Channel.')
+    async for message in client.logs_from(channel, limit=int(amount) + 2):
+        messages.append(message)
+    await client.delete_messages(messages)
+
+@client.command(pass_context=True)
 async def info(ctx):
     await client.send_message(ctx.message.channel, 'BBot Information')
     await client.send_message(ctx.message.channel, 'Befehle :grinning:')
-    await client.send_message(ctx.message.channel, '!!join ; Sprachkanal beitreten .... vor !!play')
+    await client.send_message(ctx.message.channel, '!!join ; Sprachkanal beitreten -vor !!play-')
     await client.send_message(ctx.message.channel, '!!leave ; Sprachkanal verlassen')
     await client.send_message(ctx.message.channel, '!!play [URL] ; Musik abspielen')
     await client.send_message(ctx.message.channel, '!!stop ; Stoppt Musik abspielen')
-    await client.send_message(ctx.message.channel, '!!clear ; Reinigt den ganzen Chatverlauf des Kanals [Berechtigung ben.] ')
+    await client.send_message(ctx.message.channel, '!!clear ; Bereinigt die letzten 5 Nachrichten')
+    await client.send_message(ctx.message.channel, '!!clearall ; Reinigt den ganzen Chatverlauf des Kanals')
     await client.send_message(ctx.message.channel, '!!foto ; Zeigt Landschaftsfoto...')
     await client.send_message(ctx.message.channel, '!!info ; Dieser Befehl')
     await client.send_message(ctx.message.channel, '!!volume ; [-;+;Zahl]')
