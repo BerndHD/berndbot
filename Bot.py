@@ -155,7 +155,7 @@ async def info(ctx):
     await client.send_message(ctx.message.channel, '!!clearall ; Reinigt den ganzen Chatverlauf des Kanals')
     await client.send_message(ctx.message.channel, '!!foto ; Zeigt Landschaftsfoto...')
     await client.send_message(ctx.message.channel, '!!info ; Dieser Befehl')
-    await client.send_message(ctx.message.channel, 'Programmierer:')
+    await client.send_message(ctx.message.channel, '**Programmierer:**')
     await client.send_message(ctx.message.channel, ':ghost: **@BerndHD#9422** :ghost:')
 
 
