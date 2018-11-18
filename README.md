@@ -1,7 +1,7 @@
 # berndbot
 A Discord Bot.
 
-It's my BBot.
+Owner: BerndHD
 
 Changelog:
 
