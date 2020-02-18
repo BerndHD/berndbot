@@ -1,4 +1,9 @@
 # berndbot
+
+
+OUTDATED
+
+
 A Discord Bot.
 
 Owner: BerndHD
