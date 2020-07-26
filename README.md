@@ -1,3 +1,3 @@
 # berndbot
 
-Currently rewriting
+Outdated!
